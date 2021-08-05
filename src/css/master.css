@@ -1,9 +1,53 @@
 #buttons {
     display: flex;
     justify-content: center;
+    position: absolute;
+    z-index: 3;
+    bottom: 0;
+    /* padding: 10px; */
+    margin-left: 33%;
+    background-color: rgba(40, 40, 40, 0.4);
+}
+
+#buttonsHidden {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    z-index: 3;
+    bottom: 0;
+    width: 4%;
+    /* padding: 10px; */
+    margin-left: 47%;
+    /* background-color: rgba(40, 40, 40, 0.4); */
+}
+
+.butten {
+    background-color: rgba(40, 40, 40, 0.4);
+}
+
+.butten2 {
+    background-color: rgba(40, 40, 40, 0);
 }
 
 button {
     margin: 20px;
 }
 
+#foreG {
+    position: absolute; 
+    z-index: 3; 
+    width: 80%; 
+    background-color: rgba(0, 0, 0, 0.8); 
+    color:white;
+    height: 80%;
+    top: 10%;
+    left: 10%;
+}
+
+#foreG p {
+    padding: 50px;
+}
+
+.table {
+    margin-bottom: 0;
+}
