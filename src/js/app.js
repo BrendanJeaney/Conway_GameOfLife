@@ -68,7 +68,7 @@ function resetDom(arr) {
 
 function clearBoard() {
     document.getElementById('index').innerHTML = '';
-    createGrid(29, 60);
+    createGrid(num_rows, num_cols);
 }
 
 function compareHistory() {
@@ -85,7 +85,7 @@ function compareHistory() {
 function addtoHistory() {
     hist = []
     alive.forEach(element => {
-        hist.push(element.row*59 + element.col);
+        hist.push(element.row*(num_cols-1) + element.col);
     })
     if(q.length < 3)
     {
@@ -103,6 +103,8 @@ function startGame() {
         window.alert('You must select some squares');
         return;
     }
+
+    $(window).scrollTop(0);
 
     updateBoard();
 }
@@ -172,8 +174,8 @@ function getLivingNeighbors(cell) {
     ns = [];
     n = 0;
     isTop = cell.row == 0;
-    isRight = cell.col == 59;
-    isBottom = cell.row == 28;
+    isRight = cell.col == num_cols-1;
+    isBottom = cell.row == num_rows-1;
     isLeft = cell.col == 0;
     if(!isTop) { ns.push(findCell((cell.row)-1, (cell.col))); }
     if(!(isTop || isRight)) { ns.push(findCell((cell.row)-1, (cell.col)+1)); }
@@ -206,7 +208,7 @@ function reset() {
     document.getElementById('index').innerHTML = '';
     alive = [];
     all = [];
-    createGrid(29, 60);
+    createGrid(num_rows, num_cols);
 }
 
 function randomGame() {
@@ -230,8 +232,8 @@ function randomGame() {
 }
 
 function generateRandSquare() {
-    var randRow = Math.floor(Math.random() * 29);
-    var randCol = Math.floor(Math.random() * 60);
+    var randRow = Math.floor(Math.random() * num_rows);
+    var randCol = Math.floor(Math.random() * num_cols);
     var randId = 'row' + randRow + '_col' + randCol;
     return {id: randId, row: randRow, col: randCol};
 }
@@ -245,9 +247,11 @@ function specialGame() {
 
 function main()
 {
+    num_rows = 29;
+    num_cols = 60;
     all = [];
     alive = [];
-    createGrid(29, 60);
+    createGrid(num_rows, num_cols);
     let q = new Queue();
 }
 
